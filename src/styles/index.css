@@ -101,10 +101,30 @@ body {
   padding-left: 17px;
 }
 
-.home__information {
+.information {
   width: auto;
   height: auto;
   padding-left: 17px;
+  text-align: center;
+}
+
+.information button {
+  height: 40px;
+  background-color: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+.information button svg {
+  padding-right: 10px;
+}
+
+.home__section-block {
+  display: block;
+}
+
+.home__section-none {
+  display: none;
 }
 
 /* 2.1.- PersonCell */
@@ -136,6 +156,12 @@ body {
   color: var(--color-text-light);
 }
 
+.person-cell__icon button {
+  height: 100%;
+  background-color: #fff;
+  border: none;
+}
+
 .person-cell__icon svg {
   display: block;
   height: 100%;
@@ -155,6 +181,7 @@ body {
   margin: 0;
   font-weight: 700;
   color: var(--color-text-dark);
+  text-align: start;
 }
 
 /* 2.3.- DataCell */
@@ -199,11 +226,27 @@ body {
 
 @media (min-width: 769px) {
   /* LAYOUT - HEADER */
+
+  .header p {
+    width: auto;
+    padding-left: 50px;
+    text-align: start;
+  }
+
   /* COMPONENTS*/
   /* 1.- Common */
   /* 1.1.- LoadingCell */
   /* 1.2.- NoticeCell */
   /* 2.- Home */
+  .home {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+  }
+
+  .home__information {
+    padding: 0 100px;
+    border-left: solid 2px #ecebeb;
+  }
   /* 2.1.- PersonCell */
   /* 2.2.- SectionHeader */
   /* 2.3.- DataCell */

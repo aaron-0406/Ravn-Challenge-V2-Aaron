@@ -1,34 +1,64 @@
+import { useState } from "react";
+
+//Hooks
+import { NameViewContext } from "../components/hooks/context";
+
+//Components
 import LayoutUser from "../components/layout/LayoutUser";
 import PersonCell from "../components/views/home/PersonCell";
-import SectionHeader from "../components/views/home/SectionHeader";
-import DataCell from "../components/views/home/DataCell";
-import LoadingCell from "../components/common/LoadingCell";
-import NoticeCell from "../components/common/NoticeCell";
+import Information from "../components/views/home/Information";
 
 const Home = () => {
+  const [sectionView, setSectionView] = useState<boolean>(false);
+  const [namePerson, setNamePerson] = useState<string>("");
+
+  let ancho: number;
+
+  const changeSectionView = (name: string): void => {
+    // eslint-disable-next-line no-restricted-globals
+    ancho = screen.width;
+
+    if (ancho <= 768) {
+      setSectionView(!sectionView);
+      setNamePerson(name);
+    }
+    if (ancho >= 769) {
+      setSectionView(false);
+      setNamePerson("");
+    }
+  };
+
   return (
-    <>
+    <NameViewContext.Provider value={namePerson}>
       <LayoutUser>
         <div className="home">
-          <div className="home__people">
-            <PersonCell />
-            <PersonCell />
-            <PersonCell />
-            <PersonCell />
+          <div
+            className={
+              sectionView
+                ? "home__section-none home__people"
+                : "home__section-block home__people"
+            }
+          >
+            <PersonCell
+              name="Luke Skywalker"
+              species="Human from Tatooine"
+              function={changeSectionView}
+            />
           </div>
-          <hr />
-          <div className="home__information">
-            <SectionHeader />
-            <DataCell />
-            <DataCell />
-            <DataCell />
-            <DataCell />
-          </div>
-          <LoadingCell />
-          <NoticeCell />
+
+          {sectionView ? (
+            <>
+              <Information function={changeSectionView} />
+            </>
+          ) : // eslint-disable-next-line no-restricted-globals
+          screen.width >= 769 ? (
+            <Information function={changeSectionView} />
+          ) : (
+            ""
+          )}
         </div>
       </LayoutUser>
-    </>
+    </NameViewContext.Provider>
   );
 };
 
