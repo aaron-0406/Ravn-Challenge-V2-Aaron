@@ -1,7 +1,9 @@
 const NoticeCell = () => {
   return (
-    <p>NoticeCell</p>
+    <div className="notice-cell">
+      <p>Failed to Load Data</p>
+    </div>
   );
-}
+};
 
 export default NoticeCell;

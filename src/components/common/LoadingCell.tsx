@@ -1,5 +1,24 @@
+import Lottie from "react-lottie";
+import loading from "../../assets/animation/loading.json";
+
 const LoadingCell = () => {
-  return <p>LoadingCell</p>;
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loading,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  return (
+    <div className="loading-cell">
+      <p>
+        <Lottie options={defaultOptions} height={16} width={16} />
+        Loading
+      </p>
+    </div>
+  );
 };
 
 export default LoadingCell;

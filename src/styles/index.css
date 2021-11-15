@@ -1,13 +1,210 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+  LAYOUT
+    * HEADER
+
+  COMPONENTS
+    1.- Common
+      1.1.- LoadingCell
+      1.2.- NoticeCell
+    2.- Home
+      2.1.- PersonCell
+      2.2.- SectionHeader
+      2.3.- DataCell
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+:root {
+  --color-ravn-black: #121212;
+  --color-text-dark: #333333;
+  --color-text-light: #828282;
+  --color-text-emphasis: #ec5757;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* LAYOUT - HEADER */
+
+.header {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-ravn-black);
+}
+
+.header p {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 14px 0;
+  margin: 0;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* COMPONENTS*/
+/* 1.- Common */
+/* 1.1.- LoadingCell */
+
+.loading-cell {
+  width: 100%;
+  height: auto;
+}
+
+.loading-cell p {
+  width: 100%;
+  height: auto;
+  color: var(--color-text-light);
+  text-align: center;
+  font-weight: 700;
+  padding: 14px 0;
+  margin: 0;
+}
+
+.loading-cell p div {
+  display: inline-block;
+  padding-right: 8px;
+}
+
+/* 1.2.- NoticeCell */
+
+.notice-cell {
+  width: 100%;
+  height: auto;
+}
+
+.notice-cell p {
+  width: 100%;
+  height: auto;
+  color: var(--color-text-emphasis);
+  text-align: center;
+  font-weight: 700;
+  padding: 14px 0;
+  margin: 0;
+}
+
+/* 2.- Home */
+
+.home {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.home__people {
+  width: auto;
+  height: auto;
+  padding-left: 17px;
+}
+
+.home__information {
+  width: auto;
+  height: auto;
+  padding-left: 17px;
+}
+
+/* 2.1.- PersonCell */
+
+.person-cell {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 2px #ecebeb;
+}
+
+.person-cell__information {
+  padding: 15px 0;
+}
+
+.person-cell__information p {
+  margin: 0;
+}
+
+.person-cell__information-name {
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
+
+.person-cell__information-species {
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+.person-cell__icon svg {
+  display: block;
+  height: 100%;
+  padding: 0 25px;
+}
+
+/* 2.2.- SectionHeader */
+
+.section-header {
+  width: 100%;
+  height: auto;
+  padding-top: 32px;
+  padding-bottom: 8px;
+}
+
+.section-header p {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* 2.3.- DataCell */
+
+.data-cell {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 2px #ecebeb;
+}
+
+.data-cell p {
+  margin: 0;
+}
+
+.data-cell__indicator {
+  padding: 15px 0;
+  color: var(--color-text-light);
+  font-weight: 700;
+}
+
+.data-cell__information {
+  padding: 15px 0;
+  color: var(--color-text-dark);
+  font-weight: 700;
+  padding-right: 20px;
+}
+
+@media (min-width: 426px) {
+  /* LAYOUT - HEADER */
+  /* COMPONENTS*/
+  /* 1.- Common */
+  /* 1.1.- LoadingCell */
+  /* 1.2.- NoticeCell */
+  /* 2.- Home */
+  /* 2.1.- PersonCell */
+  /* 2.2.- SectionHeader */
+  /* 2.3.- DataCell */
+}
+
+@media (min-width: 769px) {
+  /* LAYOUT - HEADER */
+  /* COMPONENTS*/
+  /* 1.- Common */
+  /* 1.1.- LoadingCell */
+  /* 1.2.- NoticeCell */
+  /* 2.- Home */
+  /* 2.1.- PersonCell */
+  /* 2.2.- SectionHeader */
+  /* 2.3.- DataCell */
 }
