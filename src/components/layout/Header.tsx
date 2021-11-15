@@ -1,7 +1,5 @@
-export default function Header() {
-  return (
-    <div>
-      <h1>Header</h1>
-    </div>
-  );
-}
+const Header = () => {
+  return <p>Header</p>;
+};
+
+export default Header;

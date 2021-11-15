@@ -1,7 +1,5 @@
-export default function SectionHeader() {
-  return (
-    <div>
-      <p>Section Header</p>
-    </div>
-  );
-}
+const SectionHeader = () => {
+  return <p>SectionHeader</p>;
+};
+
+export default SectionHeader;

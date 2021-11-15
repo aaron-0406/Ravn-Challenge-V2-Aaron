@@ -1,7 +1,5 @@
-export default function PersonCell() {
-  return (
-    <div>
-      <p>Person Cell</p>
-    </div>
-  );
-}
+const PersonCell = () => {
+  return <p>PersonCell</p>;
+};
+
+export default PersonCell;

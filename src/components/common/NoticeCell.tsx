@@ -1,7 +1,7 @@
-export default function NoticeCell() {
+const NoticeCell = () => {
   return (
-    <div>
-      <p>NoticeCell</p>
-    </div>
+    <p>NoticeCell</p>
   );
 }
+
+export default NoticeCell;

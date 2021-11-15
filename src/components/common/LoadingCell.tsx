@@ -1,7 +1,5 @@
-export default function LoadingCell() {
-    return (
-        <div>
-            <p>LoadingCell</p>
-        </div>
-    )
-}
+const LoadingCell = () => {
+  return <p>LoadingCell</p>;
+};
+
+export default LoadingCell;

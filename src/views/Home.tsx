@@ -1,7 +1,13 @@
-export default function Home() {
+import LayoutUser from "../components/layout/LayoutUser";
+
+const Home = () => {
   return (
-    <div>
-      <h1>HOME</h1>
-    </div>
+    <>
+      <LayoutUser>
+        <p>HOME</p>
+      </LayoutUser>
+    </>
   );
-}
+};
+
+export default Home;

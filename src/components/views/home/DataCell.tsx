@@ -1,7 +1,5 @@
-export default function DataCell() {
-    return (
-        <div>
-            <p>DataCell</p>            
-        </div>
-    )
-}
+const DataCell = () => {
+  return <p>DataCell</p>;
+};
+
+export default DataCell;

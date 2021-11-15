@@ -1,5 +1,17 @@
-function App() {
-  return <h1>Inicio de proyecto</h1>;
-}
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//Views
+import Home from "../views/Home";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/*Views*/}
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
