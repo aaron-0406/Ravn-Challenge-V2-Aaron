@@ -55,9 +55,10 @@ body {
   height: auto;
 }
 
-.loading-cell p {
+.loading-cell span {
   width: 100%;
   height: auto;
+  display: block;
   color: var(--color-text-light);
   text-align: center;
   font-weight: 700;
@@ -65,7 +66,7 @@ body {
   margin: 0;
 }
 
-.loading-cell p div {
+.loading-cell span div {
   display: inline-block;
   padding-right: 8px;
 }
@@ -210,6 +211,7 @@ body {
   color: var(--color-text-dark);
   font-weight: 700;
   padding-right: 20px;
+  text-transform: capitalize;
 }
 
 @media (min-width: 426px) {

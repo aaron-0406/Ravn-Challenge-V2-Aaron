@@ -1,35 +1,43 @@
 import { useState } from "react";
 
 //Hooks
-import { NameViewContext } from "../components/hooks/context";
+import { IdViewContext } from "../components/hooks/context";
 
 //Components
 import LayoutUser from "../components/layout/LayoutUser";
-import PersonCell from "../components/views/home/PersonCell";
 import Information from "../components/views/home/Information";
+import ListPeople from "../components/views/home/ListPeople";
 
 const Home = () => {
   const [sectionView, setSectionView] = useState<boolean>(false);
+  const [idPerson, setIdPerson] = useState<string>("");
   const [namePerson, setNamePerson] = useState<string>("");
 
   let ancho: number;
 
-  const changeSectionView = (name: string): void => {
+  const changeSectionView = (id: string, name: string): void => {
     // eslint-disable-next-line no-restricted-globals
     ancho = screen.width;
 
     if (ancho <= 768) {
       setSectionView(!sectionView);
+      setIdPerson(id);
       setNamePerson(name);
     }
     if (ancho >= 769) {
       setSectionView(false);
+      setIdPerson("");
       setNamePerson("");
     }
   };
 
+  const valuesContext = {
+    id: idPerson,
+    name: namePerson,
+  };
+
   return (
-    <NameViewContext.Provider value={namePerson}>
+    <IdViewContext.Provider value={valuesContext}>
       <LayoutUser>
         <div className="home">
           <div
@@ -39,26 +47,22 @@ const Home = () => {
                 : "home__section-block home__people"
             }
           >
-            <PersonCell
-              name="Luke Skywalker"
-              species="Human from Tatooine"
-              function={changeSectionView}
-            />
+            <ListPeople function={changeSectionView} />
           </div>
 
           {sectionView ? (
             <>
-              <Information function={changeSectionView} />
+              <Information id={idPerson} function={changeSectionView} />
             </>
           ) : // eslint-disable-next-line no-restricted-globals
           screen.width >= 769 ? (
-            <Information function={changeSectionView} />
+            <Information id={idPerson} function={changeSectionView} />
           ) : (
             ""
           )}
         </div>
       </LayoutUser>
-    </NameViewContext.Provider>
+    </IdViewContext.Provider>
   );
 };
 

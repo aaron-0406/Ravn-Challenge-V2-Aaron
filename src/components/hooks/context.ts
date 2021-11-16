@@ -1,4 +1,3 @@
 import { createContext } from "react";
 
-export const NameViewContext = createContext<string>("");
-
+export const IdViewContext = createContext({ id: "", name: "" });

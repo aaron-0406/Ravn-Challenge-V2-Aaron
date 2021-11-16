@@ -2,9 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 interface PersonCellProps {
+  id: string;
   name: string;
   species: string;
-  function: (name: string) => void;
+  function: (id: string, name: string) => void;
 }
 
 const PersonCell = (props: PersonCellProps) => {
@@ -15,7 +16,10 @@ const PersonCell = (props: PersonCellProps) => {
         <p className="person-cell__information-species">{props.species}</p>
       </div>
       <div className="person-cell__icon">
-        <button type="button" onClick={() => props.function(props.name)}>
+        <button
+          type="button"
+          onClick={() => props.function(props.id, props.name)}
+        >
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </div>

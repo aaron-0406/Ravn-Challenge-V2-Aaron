@@ -1,13 +1,13 @@
 import { useContext } from "react";
 
-import { NameViewContext } from "../hooks/context";
+import { IdViewContext } from "../hooks/context";
 
-const Header = () => {
-  const namePerson: string = useContext(NameViewContext);
+const Header: React.FC = () => {
+  const datos = useContext(IdViewContext);
 
   return (
     <div className="header">
-      <p>{namePerson === "" ? "People of Star Wars" : namePerson}</p>
+      <p>{datos.name === "" ? "People of Star Wars" : datos.name}</p>
     </div>
   );
 };

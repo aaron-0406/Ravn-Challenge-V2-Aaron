@@ -1,11 +1,16 @@
-const DataCell = () => {
+interface DataCellProps {
+  attribute: string;
+  value: string;
+}
+
+const DataCell: React.FC<DataCellProps> = ({ attribute, value }) => {
   return (
     <div className="data-cell">
       <div className="data-cell__indicator">
-        <p>Eye Color</p>
+        <p>{attribute}</p>
       </div>
       <div className="data-cell__information">
-        <p>Blue</p>
+        <p>{value}</p>
       </div>
     </div>
   );

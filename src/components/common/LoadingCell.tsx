@@ -13,10 +13,10 @@ const LoadingCell = () => {
 
   return (
     <div className="loading-cell">
-      <p>
+      <span>
         <Lottie options={defaultOptions} height={16} width={16} />
         Loading
-      </p>
+      </span>
     </div>
   );
 };
