@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { GET_PEOPLE, GET_PERSON, GET_TOTAL_PEOPLE } from "../gql/queryPeople";
 
-export const getPeople = (first: number, last: number): any => {
+export const getPeople = (): any => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const info = useQuery(GET_PEOPLE, { variables: { first, last } });
+  const info = useQuery(GET_PEOPLE);
   return info;
 };
 

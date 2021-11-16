@@ -1,8 +1,12 @@
-const SectionHeader = () => {
+interface SectionHeaderProps {
+  name: string;
+}
+
+const SectionHeader = (props: SectionHeaderProps) => {
   return (
     <div className="section-header">
       <div>
-        <p>General Information</p>
+        <p>{props.name}</p>
       </div>
     </div>
   );

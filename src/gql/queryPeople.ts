@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const GET_PEOPLE = gql`
-  query People($first: Int, $last: Int) {
-    allPeople(first: $first, last: $last) {
+  {
+    allPeople {
       people {
         id
         name
@@ -35,6 +35,7 @@ export const GET_PERSON = gql`
       birthYear
       vehicleConnection {
         vehicles {
+          id
           name
         }
       }

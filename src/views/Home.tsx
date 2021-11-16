@@ -6,7 +6,12 @@ import { IdViewContext } from "../components/hooks/context";
 //Components
 import LayoutUser from "../components/layout/LayoutUser";
 import Information from "../components/views/home/Information";
-import ListPeople from "../components/views/home/ListPeople";
+import LoadingCell from "../components/common/LoadingCell";
+import NoticeCell from "../components/common/NoticeCell";
+import PersonCell from "../components/views/home/PersonCell";
+
+//Services
+import { getPeople } from "../services/People";
 
 const Home = () => {
   const [sectionView, setSectionView] = useState<boolean>(false);
@@ -26,10 +31,12 @@ const Home = () => {
     }
     if (ancho >= 769) {
       setSectionView(false);
-      setIdPerson("");
-      setNamePerson("");
+      setIdPerson(id);
+      setNamePerson(name);
     }
   };
+
+  const infoPeople = getPeople();
 
   const valuesContext = {
     id: idPerson,
@@ -47,7 +54,28 @@ const Home = () => {
                 : "home__section-block home__people"
             }
           >
-            <ListPeople function={changeSectionView} />
+            {infoPeople.loading ? <LoadingCell /> : ""}
+            {infoPeople.error ? <NoticeCell /> : ""}
+            {infoPeople.data
+              ? infoPeople.data.allPeople.people.map((person: any) => {
+                  return (
+                    <div key={person.id}>
+                      <PersonCell
+                        key={person.id}
+                        id={person.id}
+                        name={person.name}
+                        species={
+                          person.species !== null
+                            ? person.species.name
+                            : "Human"
+                        }
+                        homeworld={person.homeworld.name}
+                        function={changeSectionView}
+                      />
+                    </div>
+                  );
+                })
+              : ""}
           </div>
 
           {sectionView ? (

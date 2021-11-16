@@ -34,7 +34,7 @@ const Information = (props: InformationCellProps) => {
           </>
         ) : null
       }
-      <SectionHeader />
+      <SectionHeader name="General Information" />
       {person.loading ? <LoadingCell /> : ""}
       {person.error ? <NoticeCell /> : ""}
       {person.data ? (
@@ -52,6 +52,14 @@ const Information = (props: InformationCellProps) => {
             attribute="Birth Year"
             value={person.data.person.birthYear}
           />
+          <SectionHeader name="Vehicles" />
+          {person.data.person.vehicleConnection.vehicles.map((vehicle: any) => {
+            return (
+              <div key={vehicle.id}>
+                <DataCell key={vehicle.id} attribute={vehicle.name} />
+              </div>
+            );
+          })}
         </>
       ) : (
         ""

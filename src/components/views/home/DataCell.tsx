@@ -1,6 +1,6 @@
 interface DataCellProps {
   attribute: string;
-  value: string;
+  value?: string;
 }
 
 const DataCell: React.FC<DataCellProps> = ({ attribute, value }) => {
